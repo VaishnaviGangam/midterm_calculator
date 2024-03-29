@@ -23,8 +23,4 @@ Overall, your code effectively implements core functionalities, error handling, 
 
 Bonus: Implemented Square root using static method functionality and commandManager
        implemented Binary Conversion calucaltions as well.
-<<<<<<< HEAD
        implemented History management using pandas and cvs file format
-=======
-       implemented History management using pandas and cvs file format
->>>>>>> 1e0c4846dca6defbcf179550b771bcd9f31d89a7

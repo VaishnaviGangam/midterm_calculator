@@ -53,7 +53,7 @@ class TestCalculator(unittest.TestCase):
 
 
 
-def test_show_calculation_history(history, capsys):
+def test_show_calculation_history(capsys):
     # Assuming the CSV file already exists with some saved calculations
     CalculationHistoryManager.display_calculation_history()
     captured = capsys.readouterr()
