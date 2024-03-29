@@ -1,0 +1,26 @@
+Module providing a calculator with history functionality.
+This module allows users to perform various calculations and view their history.
+
+Command Pattern:
+The display_calculation_options function utilizes a menu-driven approach, allowing users to select operations or view history. This suggests a potential implementation of the Command Pattern using the OperationManager class for handling specific calculations.
+
+Error Handling (Try/Except):
+The request_valid_float function uses a try-except block to handle potential ValueError exceptions caused by invalid user input for floating-point numbers.
+The squareRoot function also uses a try-except block to catch ValueError if a negative number is provided for square root calculation. It logs the error and raises a specific exception for better handling.
+The display_calculation_options function uses a try-except block to catch general exceptions (Exception) during user expression parsing. It provides informative error messages to the user.
+
+Environment Variables:
+The code retrieves the LOG_LEVEL environment variable to configure the logging level.
+
+Logging:
+The code imports the logging module and configures it to write logs to a file named log_history.log. The logging level is set based on the LOG_LEVEL environment variable.
+
+
+Plugin System :
+While not explicitly shown for displaying history, the code interacts with the CalculationHistoryManager class, suggesting a potential plugin-like architecture for handling history functionality.
+
+Overall, your code effectively implements core functionalities, error handling, logging configuration using environment variables, and lays the groundwork for a plugin system.
+
+Bonus: Implemented Square root using static method functionality and commandManager
+       implemented Binary Conversion calucaltions as well.
+       implemented History management using pandas and cvs file format
