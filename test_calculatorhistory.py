@@ -47,9 +47,9 @@ class TestCalculator(unittest.TestCase):
             num2 = self.fake.random_int(1, 100)  # Ensure num2 is not zero
             self.assertEqual(OperationManager.compute_quotient(num1, num2), num1 / num2)
 
-@pytest.fixture
-def history():
-    return History()
+# @pytest.fixture
+# def history():
+#     return history()
 
 
 
