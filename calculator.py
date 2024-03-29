@@ -1,3 +1,17 @@
+"""Module providing a calculator with history functionality.
+
+This module allows users to perform various calculations and view their history.
+It utilizes external modules for command management and calculation history management,
+and it configures logging to output to a file based on the LOG_LEVEL environment variable.
+
+Functions:
+    squareRoot: Calculate the square root of a number.
+    binary: Convert a number to binary.
+    request_valid_float: Prompt user for a valid float input.
+    view_past_calculations: View the history of saved calculations.
+    display_calculation_options: Display calculator menu and handle user input.
+"""
+
 import re
 import os
 import logging
@@ -5,12 +19,11 @@ from commandManager import OperationManager
 from calculation_history import CalculationHistoryManager
 
 # Retrieve the value of the LOG_LEVEL environment variable
-# Configure logging to output to a file
 log_level = os.getenv("LOG_LEVEL", "INFO")
+# Configure logging to output to a file
 logging.basicConfig(filename='log_history.log',
                     level=logging.getLevelName(log_level),
                     format='%(asctime)s - %(levelname)s - %(message)s')
-
 
 
 def squareRoot():
@@ -21,6 +34,7 @@ def squareRoot():
         raise ValueError("Cannot calculate the square root of a negative number.")
     result = OperationManager.compute_square_root(num)
     print(f"The square root of {num} is {result}")
+
 
 def binary():
     """Convert a number to binary."""
@@ -39,12 +53,9 @@ def request_valid_float(prompt_message):
             print("Invalid input. Please enter a valid number.")
 
 
-
 def view_past_calculations():
     """View the history of saved calculations."""
     CalculationHistoryManager.display_calculation_history()
-
-
 
 
 def display_calculation_options():
