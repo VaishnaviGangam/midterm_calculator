@@ -44,7 +44,7 @@ def main():
     display_menu()
     choice = get_user_choice()
     handle_choice(choice)
-    if choice == "5":
+    if choice == "4":
       break
 
 if __name__ == "__main__":

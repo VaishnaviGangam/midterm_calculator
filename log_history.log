@@ -1,2 +1,7 @@
 2024-03-28 18:23:34,505 - INFO - Add: 2.0 + 4.0 = 6.0
 2024-03-28 18:25:26,229 - INFO - Add: 2.0 + 3.0 = 5.0
+2024-03-28 19:01:29,018 - INFO - Add: 2.0 + 4.0 = 6.0
+2024-03-28 19:01:48,882 - INFO - Square root of 3.0 = 1.7320508075688772
+2024-03-28 19:02:35,982 - INFO - Binary representation of 3 = 0b11
+2024-03-28 19:02:53,794 - INFO - Binary representation of 6 = 0b110
+2024-03-28 19:04:28,937 - INFO - Binary representation of 4 = 100

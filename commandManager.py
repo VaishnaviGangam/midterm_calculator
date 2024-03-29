@@ -37,9 +37,10 @@ class OperationManager:
         result = num ** 0.5
         logging.info(f"Square root of {num} = {result}")
         return result
-    def compute_binary(num):
+    def convert_to_binary(num):
         """Convert a number to binary."""
         result = bin(num)
+        result=result[2:]
         logging.info(f"Binary representation of {num} = {result}")
         return result
 
