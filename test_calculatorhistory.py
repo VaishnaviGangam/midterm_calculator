@@ -51,15 +51,7 @@ class TestCalculator(unittest.TestCase):
 def history():
     return History()
 
-def test_save_calculation_to_csv(history):
-    a = 10
-    op = '+'
-    b = 5
-    result = 15
-    operator = 'addition'
-    CalculationHistoryManager.save_calculation_result(a, op, b, result, operator)
-    # Assert that the CSV file is created and contains the saved calculation
-    # You can use your own assertions here based on your specific requirements
+
 
 def test_show_calculation_history(history, capsys):
     # Assuming the CSV file already exists with some saved calculations

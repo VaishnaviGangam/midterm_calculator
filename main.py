@@ -1,15 +1,18 @@
+import calculator
+
 def display_menu():
   """Displays the main menu options."""
   print("Welcome to the Calculator!")
   print("1. Launch Calculator")
-  print("2. Run Automated Tests using unittest and faker")
-  print("3. Exit")
+  print("2. Binary Conversion")
+  print("3. Calculate the square root of a number")
+  print("4. Exit")
 
 def get_user_choice():
   """Prompts the user for a choice and validates input."""
   while True:
-    choice = input("Enter your choice (1/2/3): ")
-    if choice in ("1", "2", "3"):
+    choice = input("Enter your choice (1/2/3/4): ")
+    if choice in ("1", "2", "3","4"):
       return choice
     else:
       print("Invalid choice. Please try again.")
@@ -17,9 +20,11 @@ def get_user_choice():
 def handle_choice(choice):
   """Executes the selected functionality based on user input."""
   if choice == "1":
-    launch_calculation_tool()
+    calculator.display_calculation_options()
   elif choice == "2":
-    run_autotest()
+    calculator.binary()
+  elif choice == "3":
+    calculator.squareRoot()
   else:
     print("Exiting the program.")
 
@@ -39,7 +44,7 @@ def main():
     display_menu()
     choice = get_user_choice()
     handle_choice(choice)
-    if choice == "3":
+    if choice == "5":
       break
 
 if __name__ == "__main__":

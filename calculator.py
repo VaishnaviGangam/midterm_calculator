@@ -1,45 +1,51 @@
-# calculator.py
+import re
 import os
 import logging
 from commandManager import OperationManager
-from calculation_history import CalculationHistory
+from calculation_history import CalculationHistoryManager
 
 # Retrieve the value of the LOG_LEVEL environment variable
 # Configure logging to output to a file
 log_level = os.getenv("LOG_LEVEL", "INFO")
-logging.basicConfig(filename='calculator.log',
+logging.basicConfig(filename='log_history.log',
                     level=logging.getLevelName(log_level),
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-# ... (logging configuration unchanged)
 
-# Initialize History object
-calculation_record = CalculationHistory()
+def squareRoot():
+    """Calculate the square root of a number."""
+    num = request_valid_float("Enter a number to calculate its square root: ")
+    if num < 0:
+        logging.error("Cannot calculate the square root of a negative number.")
+        raise ValueError("Cannot calculate the square root of a negative number.")
+    result = OperationManager.compute_square_root(num)
+    print(f"The square root of {num} is {result}")
+
+def binary():
+    """Convert a number to binary."""
+    num = int(request_valid_float("Enter a number to convert to binary: "))
+    result = OperationManager.convert_to_binary(num)
+    print(f"The binary representation of {num} is {result}")
 
 
 def request_valid_float(prompt_message):
     """Prompt user for a valid float input."""
     while True:
         try:
-            value = float(input(prompt))
+            value = float(input(prompt_message))
             return value
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
 
-def save_calculation_result(a, op, b, result, operator):
-        calculation_record.save_to_csv(a, op, b, result, operator)
-        print("Calculation saved successfully.")
-
 
 def view_past_calculations():
     """View the history of saved calculations."""
-    calculation_record.show_history()
+    CalculationHistoryManager.display_calculation_history()
 
 
 
-import re
 
 def display_calculation_options():
     """Display calculator menu and handle user input."""
@@ -73,12 +79,12 @@ def display_calculation_options():
                     continue
                 result = operation(num1, num2)
                 print("Result:", result)
+                save = input("Do you want to save this calculation? (yes/no): ")
+                if save.lower() == 'yes':
+                    CalculationHistoryManager.save_calculation_result(num1, operator, num2, result)
             except Exception as e:
                 print("Invalid input or expression:", e)
 
-# Define view_past_calculations() function here
-def view_past_calculations():
-    pass  # Placeholder for viewing past calculations
 
 if __name__ == "__main__":
     display_calculation_options()
